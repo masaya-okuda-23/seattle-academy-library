@@ -30,7 +30,7 @@ public class DeleteBookController {
 	@Autowired
 	private BookUtil bookUtil;
 
-	@RequestMapping(value = "/editBook", method = RequestMethod.GET)
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public String transitionEdit(Locale locale, int bookId, Model model) {
 		logger.info("Welcome EditBooks.java! The client locale is {}.", locale);
 		model.addAttribute("bookInfo", booksService.getBookInfo(bookId));
@@ -52,7 +52,7 @@ public class DeleteBookController {
 	 * @return 遷移先画面
 	 */
 	@Transactional
-	@RequestMapping(value = "/updateBook", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
+	@RequestMapping(value = "/deleteBook", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
 	public String updateBook(Locale locale, @RequestParam("bookId") int bookId, @RequestParam("title") String title,
 			@RequestParam("author") String author, @RequestParam("publisher") String publisher,
 			@RequestParam("publishDate") String publishDate, @RequestParam("isbn") String isbn,
